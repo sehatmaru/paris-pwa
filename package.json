@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "start-pwa": "ng build --prod && http-server -p 8080 -c-1 dist/paris-pwa"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,7 @@
     "@ng-bootstrap/ng-bootstrap": "^12.1.2",
     "@popperjs/core": "^2.10.2",
     "@schematics/angular": "^9.1.8",
+    "angular-http-server": "^1.11.1",
     "bootstrap": "^5.1.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
