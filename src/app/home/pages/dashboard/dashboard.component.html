@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<body>
+    <app-header></app-header>
+
+    <div class="dashboard-container">
+        <label class="title">Selamat Datang di PARIS</label>
+        <div class="grid-container mt-2">
+            <button mat-stroked-button class="grid-item" *ngFor="let menu of menus"
+                (click)="openMenu(menu.id)">{{ menu.label }}</button>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</body>

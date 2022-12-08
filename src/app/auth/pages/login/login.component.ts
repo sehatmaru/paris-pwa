@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/shared/service/storage.service';
 import { AuthService } from '../../sevice/auth.service';
-import { UtilService } from 'src/app/shared/service/util.service';
+import { Util } from 'src/app/shared/util';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private storageService: StorageService,
-    private utilService: UtilService,
+    private util: Util,
     private router: Router
   ) { }
 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     if (this.authService.checkAuth(this.authModel)) {
       this.storageService.setLogin(this.authModel.username);
       this.toHome()
-    } else this.utilService.showSnackbar('Username/Password Salah', 'OK')
+    } else this.util.showSnackbar('Username/Password Salah', 'OK')
   }
 
   toHome() {

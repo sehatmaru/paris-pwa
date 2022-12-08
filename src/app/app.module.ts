@@ -7,9 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
-import { AuthModule } from './auth/auth.module';
-import { HomeModule } from './home/home.module';
 import { AuthGuardService } from './auth/sevice/auth-guard.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { AuthGuardService } from './auth/sevice/auth-guard.service';
     BrowserModule,
     RouterModule.forRoot([]),
     NgbModule,
-    NgbModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -27,8 +25,7 @@ import { AuthGuardService } from './auth/sevice/auth-guard.service';
       // or after 3 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:3000'
     }),
-    AuthModule,
-    HomeModule
+    AppRoutingModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]

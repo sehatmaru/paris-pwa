@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
+const CHECKSTATUS = 'check-status'
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  menus = [
+    {
+      label: 'Cek Status Ahli Waris',
+      id: CHECKSTATUS
+    },
+    {
+      label: 'Cek Status Ahli Waris',
+      id: ''
+    },
+  ]
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  openMenu(id: string) {
+    if (id == CHECKSTATUS) this.router.navigate(['home/heir-check'])
   }
 
 }
